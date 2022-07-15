@@ -1,6 +1,6 @@
 ---
 title: "Real time Object Tracking"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/real_time_object_tracking.png'>"
+excerpt: "This is PolyU Faculty of Engineering Robotics Team 2022 proposed solution for participating ABU Robocon HK competition. The solution can real time recognize the specified object and calculate the corresponding real world position in x y z coordinates.<br/><img src='/images/real_time_object_tracking.png'>"
 collection: portfolio
 ---
 
