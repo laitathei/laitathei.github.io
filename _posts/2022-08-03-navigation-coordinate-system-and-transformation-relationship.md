@@ -1,10 +1,13 @@
 ---
 title: 'Navigation coordinate system and transformation relationship'
 date: 2022-08-03
+author: Lai Tat Hei
 permalink: /posts/2022/08/navigation_coordinate_system_and_transformation_relationship/
+excerpt: 'Nowadays, navigation is very popular in our life, and many applications use GNSS as one of the reliable data sources. Therefore, this blog will discuss the mathematics implemented for navigation purposes.'
 tags:
   - Coordinate Transformation
 ---
+
 
 1. Introduction
 In this blog, I will talk about the most common navigation coordinate system (frame) used in application level with code implementation. The reference book for this blog is `Fundamentals of Inertial Navigation, Satellite-based Positioning and their Integration` and `Principles of GNSS, Inertial, and Multisensor Integrated Navigation Systems`<br/>
