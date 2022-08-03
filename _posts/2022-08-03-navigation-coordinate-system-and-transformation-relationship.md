@@ -32,7 +32,7 @@ omega_ie = 7.2921151467E-05  # Earth rotation rate (rad/s)
 ```
 <br/>
 5. Code Example
-There are some code samples to demonstrate coordinate transformation. <br/>
+<br/>There are some code samples to demonstrate coordinate transformation. <br/>
 ```
     def lla2enu(self,current_lla, reference_lla): # those lla in degrees
         lat_o = math.radians(current_lla[0]) 
