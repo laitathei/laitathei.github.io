@@ -27,7 +27,7 @@ e = 0.08181919 # Eccentricity
 gm = 3.986004418E14  # Gravitational constant (m^3/s^2)
 omega_ie = 7.2921151467E-05  # Earth rotation rate (rad/s)
 ```
-
+<br/>
 5. Code Example
 There are some code samples to demonstrate coordinate transformation. <br/>
 ```
