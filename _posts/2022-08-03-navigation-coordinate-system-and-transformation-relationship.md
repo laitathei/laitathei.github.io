@@ -33,7 +33,7 @@ omega_ie = 7.2921151467E-05  # Earth rotation rate (rad/s)
 <br/>
 5. Code Example
 <br/>There are some code samples to demonstrate coordinate transformation. <br/>
-<br/>
+
 ```
       def lla2enu(self,current_lla, reference_lla): # those lla in degrees
           lat_o = math.radians(current_lla[0]) 
@@ -54,9 +54,9 @@ omega_ie = 7.2921151467E-05  # Earth rotation rate (rad/s)
                                       [-math.sin(lat_o)*math.cos(lon_o), -math.sin(lat_o)*math.sin(lon_o), math.cos(lat_o)],
                                       [math.cos(lat_o)*math.cos(lon_o), math.cos(lat_o)*math.sin(lon_o), math.sin(lat_o)]])
 
-      delta_position = np.array([x_i,y_i,z_i]) - np.array([x_o,y_o,z_o])
-      point_enu = np.matmul(rotation_matrix, delta_position)
-      return point_enu # return the local cartesian position
+          delta_position = np.array([x_i,y_i,z_i]) - np.array([x_o,y_o,z_o])
+          point_enu = np.matmul(rotation_matrix, delta_position)
+          return point_enu # return the local cartesian position
       def enu2lla(self,point_enu,reference_lla)
           rotation_matrix = np.array([[-math.sin(lon_o), math.cos(lon_o),0],
                                       [-math.sin(lat_o)*math.cos(lon_o), -math.sin(lat_o)*math.sin(lon_o), math.cos(lat_o)],
@@ -64,4 +64,3 @@ omega_ie = 7.2921151467E-05  # Earth rotation rate (rad/s)
           point_lla = np.matmul(rotation_matrix.T, point_enu) + reference_lla
           return point_lla 
 ```
-<br/>
