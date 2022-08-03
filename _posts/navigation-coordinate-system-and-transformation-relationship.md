@@ -16,14 +16,26 @@ ECEF frame share the same origin and z-axis as the ECI frame (Earth-Centered Ine
 LLF frame aim to represent a vehicle’s attitude and velocity when on or near the surface of the Earth. Sometimes, people will also call this frame as local geodetic or navigation frame. Also, there are two kind of coordinate representations which are NED (north, east and down) and ENU (east, north and up) to describe xyz position order. <br/>
 <br/><img src='/images/ned_enu_description.png'><br/>
 
+4. World Geodetic System (WGS)
+As the earth is not perfect sphere, many scientists spend a lot of effort figuring out the parameters and equations best suited to approximate the shape of the Earth. In application level, most people will use WGS84 in calculation.<br/>
 ```
-def lla2enu(self,init_lla, point_lla):
-    lat_o = math.radians(init_lla[0]) 
-    lon_o = math.radians(init_lla[1])
-    alt_o = math.radians(init_lla[2])
-    lat_i = math.radians(point_lla[0])
-    lon_i = math.radians(point_lla[1])
-    alt_i = math.radians(point_lla[2])
+a = 6378137.0  # equatorial radius / semimajor axis (m)
+b = 6356752.3142 # polar radius / semiminor axis (m)
+f = 0.00335281066 # flattening
+e = 0.08181919 # Eccentricity
+gm = 3.986004418E14  # Gravitational constant (m^3/s^2)
+omega_ie = 7.2921151467E-05  # Earth rotation rate (rad/s)
+```
+
+5. Code Example
+```
+def lla2enu(self,current_lla, reference_lla): # those lla in degrees
+    lat_o = math.radians(current_lla[0]) 
+    lon_o = math.radians(current_lla[1])
+    alt_o = math.radians(current_lla[2])
+    lat_i = math.radians(reference_lla[0])
+    lon_i = math.radians(reference_lla[1])
+    alt_i = math.radians(reference_lla[2])
 
     x_o = ((a/((1-e_square*(math.sin(lat_o))**2)*0.5)) + alt_o)*math.cos(lat_o)*math.cos(lon_o)
     y_o = ((a/((1-e_square*(math.sin(lat_o))**2)*0.5)) + alt_o)*math.cos(lat_o)*math.sin(lon_o)
@@ -38,5 +50,12 @@ def lla2enu(self,init_lla, point_lla):
 
     delta_position = np.array([x_i,y_i,z_i]) - np.array([x_o,y_o,z_o])
     point_enu = np.matmul(rotation_matrix, delta_position)
-    return point_enu
+    return point_enu # return the local cartesian position
+    
+def enu2lla(self,point_enu,reference_lla)
+    rotation_matrix = np.array([[-math.sin(lon_o), math.cos(lon_o),0],
+                                [-math.sin(lat_o)*math.cos(lon_o), -math.sin(lat_o)*math.sin(lon_o), math.cos(lat_o)],
+                                [math.cos(lat_o)*math.cos(lon_o), math.cos(lat_o)*math.sin(lon_o), math.sin(lat_o)]])
+    point_lla = np.matmul(rotation_matrix.T, point_enu) + reference_lla
+    return point_lla 
 ```
