@@ -57,6 +57,7 @@ def lla2enu(self,current_lla, reference_lla): # those lla in degrees
     delta_position = np.array([x_i,y_i,z_i]) - np.array([x_o,y_o,z_o])
     point_enu = np.matmul(rotation_matrix, delta_position)
     return point_enu # return the local cartesian position
+    
 def enu2lla(self,point_enu,reference_lla)
     rotation_matrix = np.array([[-math.sin(lon_o), math.cos(lon_o),0],
                                 [-math.sin(lat_o)*math.cos(lon_o), -math.sin(lat_o)*math.sin(lon_o), math.cos(lat_o)],
