@@ -35,32 +35,32 @@ omega_ie = 7.2921151467E-05  # Earth rotation rate (rad/s)
 <br/>There are some code samples to demonstrate coordinate transformation. <br/>
 
 ```
-      def lla2enu(self,current_lla, reference_lla): # those lla in degrees
-          lat_o = math.radians(current_lla[0]) 
-          lon_o = math.radians(current_lla[1])
-          alt_o = math.radians(current_lla[2])
-          lat_i = math.radians(reference_lla[0])
-          lon_i = math.radians(reference_lla[1])
-          alt_i = math.radians(reference_lla[2])
+def lla2enu(self,current_lla, reference_lla): # those lla in degrees
+    lat_o = math.radians(current_lla[0]) 
+    lon_o = math.radians(current_lla[1])
+    alt_o = math.radians(current_lla[2])
+    lat_i = math.radians(reference_lla[0])
+    lon_i = math.radians(reference_lla[1])
+    alt_i = math.radians(reference_lla[2])
 
-          x_o = ((a/((1-e_square*(math.sin(lat_o))**2)*0.5)) + alt_o)*math.cos(lat_o)*math.cos(lon_o)
-          y_o = ((a/((1-e_square*(math.sin(lat_o))**2)*0.5)) + alt_o)*math.cos(lat_o)*math.sin(lon_o)
-          z_o = ((a/((1-e_square*(math.sin(lat_o))**2)*0.5))*(1-e_square) + alt_o)*math.sin(lat_o)
-          x_i = ((a/((1-e_square*(math.sin(lat_i))**2)*0.5)) + alt_i)*math.cos(lat_i)*math.cos(lon_i)
-          y_i = ((a/((1-e_square*(math.sin(lat_i))**2)*0.5)) + alt_i)*math.cos(lat_i)*math.sin(lon_i)
-          z_i = ((a/((1-e_square*(math.sin(lat_i))**2)*0.5))*(1-e_square) + alt_i)*math.sin(lat_i)
+    x_o = ((a/((1-e_square*(math.sin(lat_o))**2)*0.5)) + alt_o)*math.cos(lat_o)*math.cos(lon_o)
+    y_o = ((a/((1-e_square*(math.sin(lat_o))**2)*0.5)) + alt_o)*math.cos(lat_o)*math.sin(lon_o)
+    z_o = ((a/((1-e_square*(math.sin(lat_o))**2)*0.5))*(1-e_square) + alt_o)*math.sin(lat_o)
+    x_i = ((a/((1-e_square*(math.sin(lat_i))**2)*0.5)) + alt_i)*math.cos(lat_i)*math.cos(lon_i)
+    y_i = ((a/((1-e_square*(math.sin(lat_i))**2)*0.5)) + alt_i)*math.cos(lat_i)*math.sin(lon_i)
+    z_i = ((a/((1-e_square*(math.sin(lat_i))**2)*0.5))*(1-e_square) + alt_i)*math.sin(lat_i)
 
-          rotation_matrix = np.array([[-math.sin(lon_o), math.cos(lon_o),0],
-                                      [-math.sin(lat_o)*math.cos(lon_o), -math.sin(lat_o)*math.sin(lon_o), math.cos(lat_o)],
-                                      [math.cos(lat_o)*math.cos(lon_o), math.cos(lat_o)*math.sin(lon_o), math.sin(lat_o)]])
+    rotation_matrix = np.array([[-math.sin(lon_o), math.cos(lon_o),0],
+                                [-math.sin(lat_o)*math.cos(lon_o), -math.sin(lat_o)*math.sin(lon_o), math.cos(lat_o)],
+                                [math.cos(lat_o)*math.cos(lon_o), math.cos(lat_o)*math.sin(lon_o), math.sin(lat_o)]])
 
-          delta_position = np.array([x_i,y_i,z_i]) - np.array([x_o,y_o,z_o])
-          point_enu = np.matmul(rotation_matrix, delta_position)
-          return point_enu # return the local cartesian position
-      def enu2lla(self,point_enu,reference_lla)
-          rotation_matrix = np.array([[-math.sin(lon_o), math.cos(lon_o),0],
-                                      [-math.sin(lat_o)*math.cos(lon_o), -math.sin(lat_o)*math.sin(lon_o), math.cos(lat_o)],
-                                      [math.cos(lat_o)*math.cos(lon_o), math.cos(lat_o)*math.sin(lon_o), math.sin(lat_o)]])
-          point_lla = np.matmul(rotation_matrix.T, point_enu) + reference_lla
-          return point_lla 
+    delta_position = np.array([x_i,y_i,z_i]) - np.array([x_o,y_o,z_o])
+    point_enu = np.matmul(rotation_matrix, delta_position)
+    return point_enu # return the local cartesian position
+def enu2lla(self,point_enu,reference_lla)
+    rotation_matrix = np.array([[-math.sin(lon_o), math.cos(lon_o),0],
+                                [-math.sin(lat_o)*math.cos(lon_o), -math.sin(lat_o)*math.sin(lon_o), math.cos(lat_o)],
+                                [math.cos(lat_o)*math.cos(lon_o), math.cos(lat_o)*math.sin(lon_o), math.sin(lat_o)]])
+    point_lla = np.matmul(rotation_matrix.T, point_enu) + reference_lla
+    return point_lla 
 ```
