@@ -9,18 +9,18 @@ tags:
 ---
 
 
-1. Introduction
+1. Introduction<br/>
 In this blog, I will talk about the most common navigation coordinate system (frame) used in application level with code implementation. The reference book for this blog is `Fundamentals of Inertial Navigation, Satellite-based Positioning and their Integration` and `Principles of GNSS, Inertial, and Multisensor Integrated Navigation Systems`<br/>
 
-2. Earth-Centered Earth-Fixed Frame (ECEF frame)
+2. Earth-Centered Earth-Fixed Frame (ECEF frame)<br/>
 ECEF frame share the same origin and z-axis as the ECI frame (Earth-Centered Inertial Frame), but the main difference between these two navigation frame is ECEF frame rotates along with the Earth. In application level, most of the GNSS default data will follow ECEF frame, which means it provided latitude, longitude, altitude data in ECEF frame. Therefore, most people will use LLA as short forms to describe latitude, longitude, altitude data, but they are actually refering to ECEF frame. <br/>
 <br/><img src='/images/ECI_ECEF_difference.PNG'><br/>
 
-3. Local-Level Frame (LLF frame)
+3. Local-Level Frame (LLF frame)<br/>
 LLF frame aim to represent a vehicle’s attitude and velocity when on or near the surface of the Earth. Sometimes, people will also call this frame as local geodetic or navigation frame. Also, there are two kind of coordinate representations which are NED (north, east and down) and ENU (east, north and up) to describe xyz position order. <br/>
 <br/><img src='/images/ned_enu_description.PNG'><br/>
 
-4. World Geodetic System (WGS)
+4. World Geodetic System (WGS)<br/>
 As the earth is not perfect sphere, many scientists spend a lot of effort figuring out the parameters and equations best suited to approximate the shape of the Earth. In application level, most people will use WGS84 in calculation.<br/>
 ```
 a = 6378137.0  # equatorial radius / semimajor axis (m)
@@ -31,7 +31,7 @@ gm = 3.986004418E14  # Gravitational constant (m^3/s^2)
 omega_ie = 7.2921151467E-05  # Earth rotation rate (rad/s)
 ```
 <br/>
-5. Code Example
+5. Code Example<br/>
 <br/>There are some code samples to demonstrate coordinate transformation. <br/>
 
 ```
