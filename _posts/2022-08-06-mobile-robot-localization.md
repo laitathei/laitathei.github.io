@@ -16,9 +16,9 @@ One of the ways is to calculate the position from the robot velocity and yaw ang
 <br/><img src='/images/pose_vector.PNG'><br/>
 As the sensor data are coutinuous, which means there is a sampling time between two consecutive data for each sensor. The robot pose vector can convert to discrete form as follow:
 <br/><img src='/images/discrete_pose_vector.PNG'><br/>
-Finally, we can get the robot current position and its orientation. There is a code implementation of the above algorithm in ROS and the robot coordinate system illustration. In the code example, the velocity data come from wheel encoder and the yaw angle come from IMU.
+Finally, we can get the robot current position and its orientation. There is a code implementation of the above algorithm in ROS and the robot coordinate system illustration. In the code example, the velocity data come from wheel encoder and the yaw angle come from IMU.<br/>
 <br/><img src='/images/pose_diagram.png'><br/>
-<br/>
+
 ```
 #!/usr/bin/env python3
 import rospy
