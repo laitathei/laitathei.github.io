@@ -18,6 +18,7 @@ As the sensor data are coutinuous, which means there is a sampling time between 
 <br/><img src='/images/discrete_pose_vector.PNG'><br/>
 Finally, we can get the robot current position and its orientation. There is a code implementation of the above algorithm in ROS and the robot coordinate system illustration. In the code example, the velocity data come from wheel encoder and the yaw angle come from IMU.
 <br/><img src='/images/pose_diagram.PNG'><br/>
+<br/>
 ```
 #!/usr/bin/env python3
 import rospy
