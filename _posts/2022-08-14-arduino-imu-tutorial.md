@@ -12,10 +12,10 @@ tags:
 1. Arduino UNO with MPU6500<br/>
 <br/><img src='/images/arduino_mpu6500_connection.png'><br/>
 <br/>
-`
+```
 git clone https://github.com/jrowberg/i2cdevlib
-`
+```
 <br/>
 Place `Arduino` folder into `C:\Program Files (x86)\Arduino\libraries`<br/>
 Copy `I2Cdev` header file and source file from `I2Cdev` folder to `MPU6050`<br/>
-Connect arduino to PC and upload `MPU6050_DMP6` to arduino
+Connect arduino to PC and upload `MPU6050_DMP6` to arduino<br/>
