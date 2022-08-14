@@ -11,6 +11,7 @@ tags:
 
 1. Arduino UNO with MPU6500<br/>
 <br/><img src='/images/arduino_mpu6500_connection.png'><br/>
+<br/>
 `
 git clone https://github.com/jrowberg/i2cdevlib
 `
