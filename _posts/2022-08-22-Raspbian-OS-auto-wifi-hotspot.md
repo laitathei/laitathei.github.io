@@ -118,4 +118,4 @@ Step 18<br/>
 
 Step 19<br/>
 After reboot, browser the wifi and connect it with your own password<br/>
-<br/><img src='/images/Raspbian_OS_auto_wifi_hotspot_guide/step19.PNG'><br/>
+<br/><img src='/images/Raspbian_OS_auto_wifi_hotspot_guide/step19.png'><br/>
