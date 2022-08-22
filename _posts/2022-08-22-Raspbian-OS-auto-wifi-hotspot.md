@@ -118,4 +118,5 @@ Step 18<br/>
 
 Step 19<br/>
 After reboot, browser the wifi and connect it with your own password<br/>
+For example, Lai-Pi is the wifi setup by raspberry pi<br/>
 <br/><img src='/images/Raspbian_OS_auto_wifi_hotspot_guide/step19.png'><br/>
