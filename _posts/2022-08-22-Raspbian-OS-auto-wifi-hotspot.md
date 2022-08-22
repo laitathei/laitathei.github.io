@@ -33,7 +33,7 @@ Step 6<br/>
 <br/><img src='/images/Raspbian_OS_auto_wifi_hotspot_guide/step6.PNG'><br/>
 
 Step 7<br/>
-Add to the end of the file
+Add to the end of the file, change the ip address with your favourite
 ```
 interface wlan0
     static ip_address=192.168.4.1/24
