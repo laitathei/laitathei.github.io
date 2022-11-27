@@ -22,14 +22,14 @@ If `res < 0`, it means AC located in AB clockwise direction<br/>
 
 2. Cross Product Python implementation<br/>
 
-`
+```
 import numpy as np
 a = np.array([0,1])
 b = np.array([-1,1])
 res = (a[0])*(b[1]) - (a[1])*(b[0])
 print(res)
 print(np.cross(a,b))
-`
+```
 <br/>
 
 3. Dot product<br/>
@@ -44,14 +44,14 @@ If `res < 0`, it means the angle is 90<θ<180<br/>
 
 4. Dot Product Python implementation<br/>
 
-`
+```
 import numpy as np
 a = np.array([4,6])
 b = np.array([-3,7])
 res = (a[0])*(b[0]) + (a[1])*(b[1])
 print(res)
 print(np.dot(a,b))
-`
+```
 <br/>
 
 5. Rotation Matrix Python implementation
