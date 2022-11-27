@@ -11,8 +11,10 @@ tags:
 1. Cross product<br/>
 
 <br/><img src='/images/cross_product_picture_1.png'><br/>
+
 Cross product have a lot of application in engineering purpose, such as check line intersections and check point in polygon<br/>
 Cross product should be included 3-axis, so we need to expand 2-axis point to 3-axis point<br/>
+
 <br/><img src='/images/cross_product_picture_2.png'><br/>
 If `res > 0`, it means AC located in AB anticlockwise direction<br/>
 If `res = 0`, it means AC is parallel with AB<br/>
@@ -33,7 +35,9 @@ print(np.cross(a,b))
 3. Dot product<br/>
 
 Dot product can measure the angle between two vector
+
 <br/><img src='/images/dot_product_picture_1.png'><br/>
+
 If `res > 0`, it means the angle is 0<θ<90<br/>
 If `res = 0`, it means the angle is θ=90, which means two vector is perpendicular<br/>
 If `res < 0`, it means the angle is 90<θ<180<br/>
