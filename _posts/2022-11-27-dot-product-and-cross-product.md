@@ -57,6 +57,7 @@ print(np.dot(a,b))
 
 5. Rotation Matrix Python implementation
 
+```
 import numpy as np
 import math
 p = np.array([1,0])
@@ -65,3 +66,4 @@ new_x = p[0]*math.cos(math.radians(rotation_angle)) - p[1]*math.sin(math.radians
 new_y = p[0]*math.sin(math.radians(rotation_angle)) + p[1]*math.cos(math.radians(rotation_angle))
 new_p = np.array([new_x,new_y])
 print(new_p)
+```
