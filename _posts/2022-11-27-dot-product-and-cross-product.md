@@ -16,6 +16,7 @@ Cross product have a lot of application in engineering purpose, such as check li
 Cross product should be included 3-axis, so we need to expand 2-axis point to 3-axis point<br/>
 
 <br/><img src='/images/cross_product_picture_2.png'><br/>
+
 If `res > 0`, it means AC located in AB anticlockwise direction<br/>
 If `res = 0`, it means AC is parallel with AB<br/>
 If `res < 0`, it means AC located in AB clockwise direction<br/>
