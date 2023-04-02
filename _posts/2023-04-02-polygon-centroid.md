@@ -12,6 +12,7 @@ tags:
 <br/><img src='/images/polygon_centroid_equation.png'><br/>
 
 2. Code implementation<br/>
+
 ```
 #include <bits/stdc++.h>
 using namespace std;
