@@ -82,21 +82,5 @@ bool point_in_polygon(Point point, vector<Point> polygon) {
    // Return the value of the inside flag
    return inside;
 }
-
-int main() {
-  
-   // Define a point to test
-   Point point = {3, 3};
-  
-   // Define a polygon
-   vector<Point> polygon = {{0, 0}, {4, 0}, {4, 4}, {0, 4}};
-  
-   if (point_in_polygon(point, polygon)) {
-       cout << "Point is inside the polygon" << endl;
-   } else {
-       cout << "Point is outside the polygon" << endl;
-   }
-   return 0;
-}
 ```
 <br/>
