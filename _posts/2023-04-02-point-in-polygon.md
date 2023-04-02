@@ -16,9 +16,9 @@ The ray casting algorithm is one of the algorithms to solve it. <br/>
 
 2. Algorithm explaination<br/>
 <br/><img src='/images/point_in_polygon_algo.png'><br/>
-1. Draw a horizontal line to the right of each point and extend it to infinity<br/>
-2. Count the number of times the line intersects with polygon edges.<br/>
-3. A point is inside the polygon if either count of intersections is odd or point lies on an edge of polygon.  If none of the conditions is true, then point lies outside.<br/>
+Draw a horizontal line to the right of each point and extend it to infinity<br/>
+Count the number of times the line intersects with polygon edges.<br/>
+A point is inside the polygon if either count of intersections is odd or point lies on an edge of polygon.  If none of the conditions is true, then point lies outside.<br/>
 
 3. Code implementation<br/>
 
@@ -99,3 +99,4 @@ int main() {
    return 0;
 }
 ```
+<br/>
