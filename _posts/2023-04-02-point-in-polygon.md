@@ -55,10 +55,10 @@ bool point_in_polygon(Point point, vector<Point> polygon) {
        if (y > min(p1.y, p2.y)) {
           
            // Check if the point is below the maximum y coordinate of the edge
-           if (y <= max(p1.y, p2.y)) {
+           if (y < max(p1.y, p2.y)) {
               
                // Check if the point is to the left of the maximum x coordinate of the edge
-               if (x <= max(p1.x, p2.x)) {
+               if (x < max(p1.x, p2.x)) {
                   
                    /*
                         Calculate the x-intersection of the line connecting the point to the edge
