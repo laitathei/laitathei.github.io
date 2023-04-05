@@ -9,19 +9,16 @@ tags:
 ---
 
 1. Define Problem<br/>
-<br/><img src='/images/point_in_line_.png'><br/>
+<br/><img src='/images/point_not_in_line.png'><br/>
 The problem of points in line is a very classical geometric problem. <br/>
 
 2. Algorithm explaination<br/>
 If the point located in the line, the following scenario will form. <br/>
-A-C------B<br/>
+<br/><img src='/images/point_in_line.png'><br/>
 It will cause `dist(AC) + dist(CB) == dist(AB)`<br/>
 <br/>
 If the point not located in the line, the following scenario will form. <br/>
-A-----B<br/>
- \   /<br/>
-  \ /<br/>
-   C<br/>
+<br/><img src='/images/point_not_in_line.png'><br/>
 It will cause `dist(AC) + dist(CB) != dist(AB)`<br/>
 Therefore, we can create the function to solve the problem easily. <br/>
 
