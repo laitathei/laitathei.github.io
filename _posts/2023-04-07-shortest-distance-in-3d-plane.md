@@ -1,5 +1,5 @@
 ---
-title: 'Point in Line'
+title: 'Shortest distance in 3D plane'
 date: 2023-04-07
 author: Lai Tat Hei
 permalink: /posts/2023/04/shortest_distance_in_3d_plane/
