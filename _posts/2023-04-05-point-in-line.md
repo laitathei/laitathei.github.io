@@ -1,6 +1,6 @@
 ---
 title: 'Point in Line'
-date: 2023-04-02
+date: 2023-04-05
 author: Lai Tat Hei
 permalink: /posts/2023/04/point_in_line/
 excerpt: ''
