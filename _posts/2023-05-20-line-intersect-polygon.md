@@ -15,7 +15,7 @@ Giving a line and polygon. Find out if a line intersects a polygon.
 According to the standard form of linear equation, we can simplify the equation to below which show the determinant<br/>
 If the determinant term becomes zero it means that the two line segments are parallel, otherwise they must have an intersection<br/>
 Therefore, we can find out whether a line intersects a polygon with<br/>
-<br/><img src='/images/Line_intersect_polygon.jpg'><br/>
+<br/><img src='/images/Line_intersect_polygon_algo.jpg'><br/>
 
 3. Code implementation<br/>
 
