@@ -72,20 +72,4 @@ bool line_intersect_polygon(vector<vector<double>> segment, vector<vector<double
     }
     return false;
 }
-
-int main() {
-  
-   // Define a point to test
-   // vector<vector<double>> segment = {{-1,-1},{-1,1}};
-  
-   // Define a polygon
-   // vector<vector<double>> polygon = {{0, 0}, {4, 0}, {4, 4}, {0, 4}};
-
-   if (line_intersect_polygon(segment, polygon)) {
-       cout << "Point intersect with the polygon" << endl;
-   } else {
-       cout << "Point not intersect the polygon" << endl;
-   }
-   return 0;
-}
 ```
