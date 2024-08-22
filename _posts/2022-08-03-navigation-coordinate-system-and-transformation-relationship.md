@@ -36,28 +36,30 @@ omega_ie = 7.2921151467E-05  # Earth rotation rate (rad/s)
 <br/>There are some code samples to demonstrate coordinate transformation. <br/>
 
 ```
-def lla2enu(self, current_lla, reference_lla): # those lla in degrees
-    lat_o = math.radians(current_lla[0]) 
-    lon_o = math.radians(current_lla[1])
-    alt_o = math.radians(current_lla[2])
-    lat_i = math.radians(reference_lla[0])
-    lon_i = math.radians(reference_lla[1])
-    alt_i = math.radians(reference_lla[2])
+def lla2ecef(lat,lon,alt):
+    lat = np.deg2rad(lat) 
+    lon = np.deg2rad(lon)
+    N = a / np.sqrt(1 - e**2 * np.sin(lat)**2)
+    x = (N + alt) * np.cos(lat) * np.cos(lon)
+    y = (N + alt) * np.cos(lat) * np.sin(lon)
+    z = (N * (1 - e**2) + alt) * np.sin(lat)
+    return x, y, z
 
-    #Donald note: 0.5 should be wrong double check the calculation
-    x_o = ((a/((1-e_square*(math.sin(lat_o))**2))) + alt_o)*math.cos(lat_o)*math.cos(lon_o)
-    y_o = ((a/((1-e_square*(math.sin(lat_o))**2))) + alt_o)*math.cos(lat_o)*math.sin(lon_o)
-    z_o = ((a/((1-e_square*(math.sin(lat_o))**2)))*(1-e_square) + alt_o)*math.sin(lat_o)
-    x_i = ((a/((1-e_square*(math.sin(lat_i))**2))) + alt_i)*math.cos(lat_i)*math.cos(lon_i)
-    y_i = ((a/((1-e_square*(math.sin(lat_i))**2))) + alt_i)*math.cos(lat_i)*math.sin(lon_i)
-    z_i = ((a/((1-e_square*(math.sin(lat_i))**2)))*(1-e_square) + alt_i)*math.sin(lat_i)
-    #Donald note end
+def lla2enu(lat,lon,alt,lat_ref,lon_ref,alt_ref): # those lla in degrees
+    # Convert from LLA to ECEF
+    x, y, z = lla2ecef(lat,lon,alt)
+    x_ref, y_ref, z_ref = lla2ecef(lat_ref,lon_ref,alt_ref)
 
-    rotation_matrix = np.array([[-math.sin(lon_o), math.cos(lon_o),0],
-                                [-math.sin(lat_o)*math.cos(lon_o), -math.sin(lat_o)*math.sin(lon_o), math.cos(lat_o)],
-                                [math.cos(lat_o)*math.cos(lon_o), math.cos(lat_o)*math.sin(lon_o), math.sin(lat_o)]])
+    # Convert from ECEF to ENU
+    cur = np.array([x, y, z])
+    ref = np.array([x_ref, y_ref, z_ref])
+    d = cur-ref
+    lat_ref = np.deg2rad(lat_ref) 
+    lon_ref = np.deg2rad(lon_ref)
+    rotation_matrix = np.array([[-np.sin(lon_ref), np.cos(lon_ref), 0],
+                                [-np.sin(lat_ref)*np.cos(lon_ref), -np.sin(lat_ref)*np.sin(lon_ref), np.cos(lat_ref)],
+                                [np.cos(lat_ref)*np.cos(lon_ref), np.cos(lat_ref)*np.sin(lon_ref), np.sin(lat_ref)]])
 
-    delta_position = np.array([x_o,y_o,z_o]) - np.array([x_i,y_i,z_i])
-    point_enu = np.matmul(rotation_matrix, delta_position)
+    point_enu = np.dot(rotation_matrix, d)
     return point_enu # return the local cartesian position
 ```
